@@ -30,16 +30,18 @@ void opencmd()
   Keyboard.print("cmd");
   delay(delayAmount);
   typeKey(KEY_RETURN);
+  delay(delayAmount);
 """
 
 # read each line of the batch file and add "doCommand" function to it
 with open(sys.argv[1]) as inputfile:
     for line in inputfile:
         line = line.replace("\n", "")
+        line = line.replace("\"", "\\\"")
         outStr += "  doCommand(\"%s\");\n" % line
 
 # concatenate the last part of the code
-outStr += """  doCommand("exit");
+outStr += """  doCommand(\"exit\");
 }
 
 void setup()
