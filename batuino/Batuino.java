@@ -11,10 +11,10 @@ public class Batuino {
         String fileOutName = "batuino_output.ino";
 
         // first part of Arduino sketch
-        String inoFile1 = "#include <Keyboard.h>\n\nint delayAmount = 400;\n\nvoid typeKey(int key)\n{\n  Keyboard.press(key);\n  delay(50);\n  Keyboard.release(key);\n}\n\nvoid doCommand(char command[])\n{\n\nKeyboard.print(command);\n  Keyboard.press(KEY_RETURN);\n  delay(delayAmount);\n}\n\nvoid opencmd()\n{\n  typeKey(KEY_ESC);\n  Keyboard.press(KEY_LEFT_CTRL);\n  Keyboard.press(KEY_ESC);\n  Keyboard.releaseAll();\n  delay(delayAmount);\n  Keyboard.print(\"cmd\");\n  delay(delayAmount);\n  typeKey(KEY_RETURN);";
+        String inoFile1 = "#include <Keyboard.h>\n\nint delayAmount = 600;\n\nvoid typeKey(int key)\n{\n  Keyboard.press(key);\n  delay(50);\n  Keyboard.release(key);\n}\n\nvoid doCommand(char command[])\n{\n\nKeyboard.print(command);\n  Keyboard.press(KEY_RETURN);\n  Keyboard.releaseAll();\n  delay(delayAmount);\n}\n\nvoid opencmd()\n{\n  typeKey(KEY_ESC);\n  Keyboard.press(KEY_LEFT_CTRL);\n  Keyboard.press(KEY_ESC);\n  Keyboard.releaseAll();\n  delay(delayAmount);\n  Keyboard.print(\"cmd\");\n  delay(delayAmount);\n  typeKey(KEY_RETURN);";
 
         // last part of Arduino sketch
-        String inoFile2 = "\n  doCommand(\"exit\");\n}\n\nvoid setup()\n{\n  Keyboard.begin();\n  delay(1000);\n  opencmd();\n}";
+        String inoFile2 = "\n  doCommand(\"exit\");\n}\n\nvoid setup()\n{\n  Keyboard.begin();\n  delay(1000);\n  opencmd();\n}\n\n void loop() {} // unused";
 
         // variable for reading the lines of the batch file
         String lines = "";
