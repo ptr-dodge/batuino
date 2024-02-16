@@ -1,27 +1,24 @@
 # Batuino
-
 ## Embed a batch script in an arduino Keyboard sketch
-<br>
-<br>
 
-> **I dont know Java that well, so i decided to challenge myself to create the same project in Java, so here they both are**
-
-
-If you dont know how to compile java, just look it up or use the python version, they both do the same thing
+> This project has two flavors, one in Java, and one in Python.
 
 ## Usage:
-
 ### Python
 ```console
-python batuino.py test.bat
+python batuino.py -i test.bat -o test.ino
 ```
 
 ### Java:
 ```console
-java batuino.jar
-// will ask for file name
+java batuino.jar // will ask for file name
 ```
 
-Both outputs `batuino_output.ino`, you can change the name within the code or after running
+Open the arduino sketch in the Arduino IDE and upload to a HID compatible board such as the Arduino Pro Micro.
 
-open the arduino sketch in the Arduino IDE and upload to a HID compatible board such as the Arduino Pro Micro.
+I use this with an Arduino Pro Micro, aka Leonardo
+
+When you plug your arduino in to your computer, the batch script should automaticaly run.
+
+## Todo
+-   get shell scripts working
